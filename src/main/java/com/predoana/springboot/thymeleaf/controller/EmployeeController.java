@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.predoana.springboot.thymeleaf.entity.Employee;
 import com.predoana.springboot.thymeleaf.service.EmployeeService;
 
@@ -24,7 +23,6 @@ public class EmployeeController {
 	}
 	
 	//add mapping for "/list"
-	
 	@GetMapping("/list")
 	public String listEmployee(Model theModel) {
 		
@@ -34,9 +32,9 @@ public class EmployeeController {
 		//add to the string model
 		theModel.addAttribute("employees", theEmployees);
 		
-		return "/employees/list-employees";
-		
+		return "/employees/list-employees";	
 	}
+	
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd (Model theModel) {
 		
@@ -47,6 +45,7 @@ public class EmployeeController {
 		
 		return "employees/employee-form";
 	}
+	
 	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
@@ -59,7 +58,6 @@ public class EmployeeController {
 		
 		//send over to our form 
 		return "/employees/employee-form";
-	
 	}
 	
 	@PostMapping("/save")
@@ -81,7 +79,5 @@ public class EmployeeController {
 
 		//redirect to /employees/list
 		return "redirect:/employees/list";
-
-
 	}
 }
